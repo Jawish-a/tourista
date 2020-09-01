@@ -4,9 +4,19 @@
 {% block title %}Create{% endblock title %}
 
 {% block content %}
-<form action="{% url 'destination-create' %}" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{form.as_p}}
-  <input type="submit" value="Create">
-</form>
+<div class="row">
+  <div class="col-sm-10 col-md-10 col-lg-8 mx-auto">
+    <div class="card card-rounded bg-light shadow my-5">
+      <div class="card-body">
+        <h5 class="card-title text-center">Crea New Destination}} </h5>
+        <form action="{% url 'destination-create' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form|crispy}}
+          <button class="btn btn-block btn-success text-uppercase btn-rounded" type="submit">Save</button>
+          <button class="btn btn-dark btn-block text-uppercase btn-rounded" type="submit">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}

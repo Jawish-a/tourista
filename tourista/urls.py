@@ -22,7 +22,7 @@ from destinations import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+    path('', views.home, name="home"),
     path('destinations/list/', views.destination_list, name='destination-list'),
     path('destinations/detail/<int:destination_id>/',
          views.destination_detail, name='destination-detail'),
@@ -36,6 +36,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     '''Uncomment the next line to include your static files'''
-    # urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

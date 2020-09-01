@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from .models import Destination
 from .forms import DestinationForm
 
+def home(request):
+    context = {
+        "destinations": Destination.objects.all()
+    }
+    return render(request, 'home.html', context)
 
 def destination_list(request):
     context = {
